@@ -1,7 +1,7 @@
 #%%
 import os
 os.getcwd()
-os.chdir('/home/matias/skills_bioinfo/blast')
+os.chdir('/home/matias/bioinformatics_skills/sequences_working/analysis')
 os.getcwd()
 os.listdir()
 
@@ -36,7 +36,6 @@ os.listdir()
 
 #%%
 from Bio.Blast import NCBIWWW
-fas
 result_handle = NCBIWWW.qblast('blastp', 'nr', 'MSVIKSDMKIKLRMEGTVNGHKFVIEGEGEGKPYEGTQTMNLKVKEGAPLPFAYDILTTAFQYGNRVFTKYPKDIPDYFKQSFPEGYSWERSMTFEDGGICTATSDITLEGDCFFYKIRFDGVNFPPNGPVMQKKTLKWEPSTEKMYVRDGVLMGDVNMALLLEGGGHYRCDFKTTYKAKKGVQLPDYHFVDHRIEILSHDKDYNNVKLYEHAVARSSLLP')
 
 # %%
@@ -56,22 +55,21 @@ for alignment in blast_record.alignments:
              print(hsp.match[0:75] + "...")
              print(hsp.sbjct[0:75] + "...")
 
-# %% nowork
-from Bio.Blast import NCBIXML
-blast_records = NCBIXML.parse(result_handle)
-blast_record = next(blast_records)
+# %% [markdown] 
+# nowork
+# from Bio.Blast import NCBIXML
+# blast_records = NCBIXML.parse(result_handle)
+# blast_record = next(blast_records)
 
-E_VALUE_THRESH = 0.04
+# E_VALUE_THRESH = 0.04
 
-for alignment in blast_record.alignments:
-     for hsp in alignment.hsps:
-         if hsp.expect < E_VALUE_THRESH:
-             print("****Alignment****")
-             print("sequence:", alignment.title)
-             print("length:", alignment.length)
-             print("e value:", hsp.expect)
-             print(hsp.query[0:75] + "...")
-             print(hsp.match[0:75] + "...")
-             print(hsp.sbjct[0:75] + "...")
-
-# %%
+# for alignment in blast_record.alignments:
+#      for hsp in alignment.hsps:
+#          if hsp.expect < E_VALUE_THRESH:
+#              print("****Alignment****")
+#              print("sequence:", alignment.title)
+#              print("length:", alignment.length)
+#              print("e value:", hsp.expect)
+#              print(hsp.query[0:75] + "...")
+#              print(hsp.match[0:75] + "...")
+#              print(hsp.sbjct[0:75] + "...")
